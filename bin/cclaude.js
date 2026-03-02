@@ -6,6 +6,7 @@ import { PRESETS } from "../src/presets.js";
 import { loadKeys, loadProfiles } from "../src/profiles.js";
 
 const RATE_LIMIT_PATTERNS = [
+  /you['']ve hit your limit/i,
   /usage limit reached/i,
   /rate limit/i,
   /Claude\.ai usage limit/i,
