@@ -1,6 +1,6 @@
 {
   "name": "@adithya-13/cc-switch",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Switch Claude Code between providers (Claude Pro, z.ai, Kimi, OpenRouter, DeepSeek, and more)",
   "keywords": [
     "claude",
