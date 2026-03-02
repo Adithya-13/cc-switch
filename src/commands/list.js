@@ -2,6 +2,7 @@ import chalk from 'chalk'
 import { PRESETS } from '../presets.js'
 import { loadProfiles, loadKeys } from '../profiles.js'
 import { readSettings, getCurrentProvider } from '../settings.js'
+import { maskKey } from '../utils.js'
 
 export function listCommand() {
   const settings = readSettings()
@@ -18,7 +19,7 @@ export function listCommand() {
     const label = isActive ? chalk.green.bold(preset.name) : chalk.white(preset.name)
     const keyStatus = preset.requiresKey === false
       ? chalk.gray('OAuth')
-      : hasKey ? chalk.green('key ✓') : chalk.yellow('no key')
+      : hasKey ? chalk.green(`key ${maskKey(keys[name])}`) : chalk.yellow('no key')
 
     console.log(`  ${marker} ${label.padEnd(isActive ? 33 : 25)} ${keyStatus}`)
     if (preset.description) {

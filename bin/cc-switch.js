@@ -8,7 +8,33 @@ import { addCommand } from "../src/commands/add.js";
 import { doctorCommand } from "../src/commands/doctor.js";
 import { readSettings, getCurrentProvider } from "../src/settings.js";
 import { PRESETS } from "../src/presets.js";
-import { loadProfiles } from "../src/profiles.js";
+import { loadProfiles, isFirstRun } from "../src/profiles.js";
+
+if (isFirstRun()) {
+  const settings = readSettings()
+  const current = getCurrentProvider(settings)
+  const preset = PRESETS[current] || loadProfiles()[current]
+  const name = preset?.name || current
+
+  console.log()
+  console.log(chalk.cyan('  ╔══════════════════════════════════════════════╗'))
+  console.log(chalk.cyan('  ║          Welcome to cc-switch! 🎉            ║'))
+  console.log(chalk.cyan('  ║   Switch Claude Code between providers       ║'))
+  console.log(chalk.cyan('  ╚══════════════════════════════════════════════╝'))
+  console.log()
+  console.log(chalk.white('  Quick start:'))
+  console.log()
+  console.log(chalk.gray('  1. See all providers:     cc-switch list'))
+  console.log(chalk.gray('  2. Switch provider:       cc-switch use zai'))
+  console.log(chalk.gray('  3. Add your API key:      cc-switch use kimi   (prompts for key)'))
+  console.log(chalk.gray('  4. Save for next time:    keys saved in ~/.cc-switch/keys.json'))
+  console.log()
+  console.log(chalk.gray('  Hit a rate limit? Use cclaude instead of claude —'))
+  console.log(chalk.gray('  it detects limits and shows fallback options.'))
+  console.log()
+  console.log(chalk.white(`  Active: ${chalk.green.bold(name)}`))
+  console.log()
+}
 
 const program = new Command();
 

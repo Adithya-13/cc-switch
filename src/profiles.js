@@ -5,9 +5,19 @@ import { join } from 'path'
 const DIR = join(homedir(), '.cc-switch')
 const KEYS_PATH = join(DIR, 'keys.json')
 const PROFILES_PATH = join(DIR, 'profiles.json')
+const INIT_FLAG = join(DIR, '.initialized')
 
 function ensureDir() {
   if (!existsSync(DIR)) mkdirSync(DIR, { recursive: true })
+}
+
+export function isFirstRun() {
+  ensureDir()
+  if (!existsSync(INIT_FLAG)) {
+    writeFileSync(INIT_FLAG, '')
+    return true
+  }
+  return false
 }
 
 export function loadKeys() {
