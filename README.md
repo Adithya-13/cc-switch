@@ -12,7 +12,7 @@ cc-switch use openrouter # → OpenRouter (320+ models)
 ## Install
 
 ```bash
-npm install -g cc-switch
+npm install -g @adithya-13/cc-switch
 ```
 
 Or via curl:
