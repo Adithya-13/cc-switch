@@ -48,30 +48,6 @@ cc-switch add <name>       # add a custom provider
 cc-switch doctor           # check setup and saved keys
 ```
 
-## Rate Limit Detection (cclaude)
-
-Instead of `claude`, use `cclaude` — it wraps Claude Code and notifies you when a rate limit is hit, with quick-switch suggestions:
-
-```bash
-cclaude   # same as claude, but with rate limit detection
-```
-
-When a limit is hit:
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  ⚠  Claude usage limit reached
-
-  Available fallbacks:
-
-  → z.ai (GLM)             cc-switch use zai
-  → Kimi K2                cc-switch use kimi
-
-  Quick switch: cc-switch use zai
-  Then restart: cclaude
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
 ## Key Storage
 
 API keys are saved in `~/.cc-switch/keys.json` (chmod 600). Never hardcoded or exposed.
