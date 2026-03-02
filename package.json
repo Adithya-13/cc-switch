@@ -1,0 +1,25 @@
+{
+  "name": "cc-switch",
+  "version": "1.0.0",
+  "description": "Switch Claude Code between providers (Claude Pro, z.ai, Kimi, OpenRouter, DeepSeek, and more)",
+  "keywords": ["claude", "claude-code", "anthropic", "zai", "openrouter", "kimi", "provider", "switch"],
+  "author": "adithya-13",
+  "license": "MIT",
+  "homepage": "https://github.com/adithya-13/cc-switch#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adithya-13/cc-switch.git"
+  },
+  "type": "module",
+  "bin": {
+    "cc-switch": "./bin/cc-switch.js",
+    "cclaude": "./bin/cclaude.js"
+  },
+  "files": ["bin", "src", "install.sh", "README.md"],
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "inquirer": "^9.2.0"
+  }
+}
