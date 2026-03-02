@@ -2,7 +2,7 @@
 // env: null means "no env block" (use Claude OAuth)
 
 export const PRESETS = {
-  pro: {
+  claude: {
     name: "Claude Pro/Max",
     description: "Claude subscription (Pro, Max, Team)",
     env: null, // removes env block, falls back to OAuth
