@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, copyFileSync, existsSync, renameSync } fro
 import { homedir } from 'os'
 import { join } from 'path'
 import { PRESETS } from './presets.js'
+import { loadProfiles } from './profiles.js'
 
 const SETTINGS_PATH = join(homedir(), '.claude', 'settings.json')
 
@@ -24,7 +25,8 @@ export function getCurrentProvider(settings) {
   if (!env || Object.keys(env).length === 0) return 'pro'
   const baseUrl = env.ANTHROPIC_BASE_URL
   if (!baseUrl) return 'pro'
-  for (const [name, preset] of Object.entries(PRESETS)) {
+  const allProviders = { ...PRESETS, ...loadProfiles() }
+  for (const [name, preset] of Object.entries(allProviders)) {
     if (preset.baseUrl && baseUrl === preset.baseUrl) return name
   }
   return 'unknown'
